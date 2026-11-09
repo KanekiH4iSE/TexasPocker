@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b3b2e">
+  <title>Покер онлайн</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="offline" class="offline hidden">Нет соединения — переподключаемся…</div>
+
+  <section id="home" class="screen home">
+    <div class="suits" aria-hidden="true"><span>♠</span><span class="r">♥</span><span class="r">♦</span><span>♣</span></div>
+    <h1>Покер онлайн</h1>
+    <p class="sub">Техасский холдем для друзей. Без регистрации: создайте стол и отправьте ссылку.</p>
+
+    <label class="field">Ваше имя
+      <input id="name" maxlength="16" placeholder="Как вас зовут?" autocomplete="nickname">
+    </label>
+    <button id="create" class="btn primary big">Создать стол</button>
+
+    <div class="or"><span>или войти по коду</span></div>
+    <div class="join-row">
+      <input id="code" maxlength="4" placeholder="КОД" autocapitalize="characters" autocomplete="off" spellcheck="false">
+      <button id="join" class="btn big">Войти</button>
+    </div>
+    <p id="homeErr" class="err" role="alert"></p>
+    <p class="fine">Игра на условные фишки, деньги не используются. Каждому по 1000, блайнды 10/20.</p>
+  </section>
+
+  <section id="game" class="screen game hidden">
+    <header class="bar">
+      <div class="bar-l">Стол <b id="roomCode"></b></div>
+      <div class="bar-m" id="blinds"></div>
+      <div class="bar-r">
+        <button id="copy" class="chip-btn">Пригласить</button>
+        <button id="leave" class="chip-btn ghost">Выйти</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="table" id="table">
+        <div class="rail"></div>
+        <div class="center">
+          <div class="pot" id="pot"></div>
+          <div class="board" id="board"></div>
+          <div class="msg" id="msg"></div>
+        </div>
+        <div id="seats"></div>
+      </div>
+    </main>
+
+    <div id="controls" class="controls"></div>
+
+    <details class="log">
+      <summary>Журнал раздачи</summary>
+      <div id="log"></div>
+    </details>
+  </section>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
